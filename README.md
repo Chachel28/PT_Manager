@@ -1,3 +1,8 @@
+### How to use Docker compose:
+- Install Docker and Docker Compose
+- Locate the compose.yaml file or create one with the services you need
+- Use docker-compose up -d to run the file in the background
+
 This is a Kotlin Multiplatform project targeting Android, iOS, Web, Server.
 
 * [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
