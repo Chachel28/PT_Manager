@@ -7,4 +7,8 @@ class Greeting {
         return "Hello, ${platform.name}!"
     }
 
+    fun test(): String {
+        return "Hello, ${platform.name}!"
+    }
+
 }
