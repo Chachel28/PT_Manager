@@ -1,6 +1,9 @@
 
-
 -- ## CREATES ##
+
+-- uncomment to create schema too
+-- CREATE SCHEMA ptmanager AUTHORIZATION ptmanager;
+
 -- sequence for id user
 create sequence ptmanager.sequenceIdUser
 minvalue 1
