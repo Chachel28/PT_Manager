@@ -1,15 +1,29 @@
---v0.0.1
 
+
+-- ## CREATES ##
 -- sequence for id user
-create sequence ptmanager.sequenceId
+create sequence ptmanager.sequenceIdUser
 minvalue 1
 maxvalue 999999
 increment by 1;
 
+-- sequence for id trainer
+create sequence ptmanager.sequenceIdtrainer
+minvalue 1
+maxvalue 999999
+increment by 1;
+
+-- sequence for id exercise
+create sequence ptmanager.sequenceIdexercise
+minvalue 1
+maxvalue 999999
+increment by 1;
+
+
 -- table users
 create table ptmanager.Users (
-    id integer default nextval('sequenceId'),
-    name varchar(30) not null,
+    id integer default nextval('sequenceIduser'),
+    fullname varchar(30) not null,
     mail varchar(50) not null,
     pass varchar(20) not null
 );
@@ -23,7 +37,7 @@ alter table ptmanager.Users
 
 -- table trainers
 create table ptmanager.trainers (
-    idtrainer integer default nextval('sequenceId'),
+    idtrainer integer default nextval('sequenceIdtrainer'),
     iduser integer not null
 );
 
@@ -57,7 +71,7 @@ alter table ptmanager.trainees
 
 -- table exercises
 create table ptmanager.exercises (
-    idexercise integer default nextval('sequenceId'),
+    idexercise integer default nextval('sequenceIdexercise'),
     exercisename varchar(100) not null,
     locationfile varchar(255)
 );
@@ -66,3 +80,28 @@ create table ptmanager.exercises (
 alter table ptmanager.exercises
    add constraint exercisesPk
    primary key(idexercise);
+
+
+
+-- ## INSERTS ##
+
+INSERT INTO ptmanager.users
+(id, fullname, mail, pass)
+VALUES(1, 'Guillermo', 'test@test.es', '1234');
+
+INSERT INTO ptmanager.users
+(id, fullname, mail, pass)
+VALUES(2, 'Alejandro', 'test2@test.es', '4321');
+
+INSERT INTO ptmanager.trainers
+(idtrainer, iduser)
+VALUES(1, 2);
+
+INSERT INTO ptmanager.trainees
+(idtrainer, iduser)
+VALUES(2, 2);
+
+INSERT INTO ptmanager.exercises
+(idexercise, exercisename, locationfile)
+VALUES(2, 'Sentadilla', 'afgvasdfxagfvaxcga');
+
